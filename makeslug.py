@@ -1,5 +1,6 @@
 def check_for_errors(sentence: str) -> tuple[bool, str]:
-    """Check for errors on the sentence.
+    """
+    Check for errors on the sentence.
 
     Args:
         sentence: The sentence to check.
@@ -20,7 +21,8 @@ def check_for_errors(sentence: str) -> tuple[bool, str]:
 
 
 def generate(sentence: str) -> str:
-    """Generate a slug from a sentence.
+    """
+    Generate a slug from a sentence.
 
     Args:
         sentence: The sentence to check.
