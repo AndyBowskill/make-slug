@@ -34,6 +34,17 @@ class TestMakeSlug(unittest.TestCase):
             slug, "test-slug-values-1", "Slug should be populated correctly."
         )
 
+    def test_generate_outer_chars_are_blank(self):
+        """
+        Test generate function works successfully when the outer characters are blank provided.
+        """
+
+        slug = makeslug.generate("    Test SLUG vaLUEs 2  ")
+
+        self.assertEqual(
+            slug, "test-slug-values-2", "Slug should be populated correctly."
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

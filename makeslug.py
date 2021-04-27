@@ -31,7 +31,8 @@ def generate(sentence: str) -> str:
         generated slug value.
     """
 
-    slug = sentence.lower()
+    slug = sentence.strip()
+    slug = slug.lower()
     slug = slug.replace(" ", "-")
 
     return slug
