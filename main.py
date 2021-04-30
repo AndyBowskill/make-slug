@@ -13,8 +13,9 @@ def main():
         if error:
             print(error_text)
 
-    slug = makeslug.generate()
-    print(f"The generated slug is: {slug}")
+    slug = makeslug.generate(sentence)
+    print("The generated slug is:")
+    print(f"{slug}")
 
 
 if __name__ == "__main__":

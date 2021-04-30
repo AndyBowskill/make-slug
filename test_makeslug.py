@@ -23,6 +23,16 @@ class TestMakeSlug(unittest.TestCase):
         self.assertTrue(error, "Error should be True.")
         self.assertIsNotNone(error_text, "Error text should be populated.")
 
+    def test_check_for_errors_special_characters_in_sentence(self):
+        """
+        Test check_for_errors function raising an error when special characters in a sentence provided.
+        """
+
+        error, error_text = makeslug.check_for_errors("%One slug ^* value  $  ")
+
+        self.assertTrue(error, "Error should be True.")
+        self.assertIsNotNone(error_text, "Error text should be populated.")
+
     def test_generate_regular_sentence(self):
         """
         Test generate function works successfully when a regular sentence provided.
