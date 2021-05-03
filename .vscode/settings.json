@@ -2,5 +2,5 @@
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.pythonPath": "/Users/andybowskill/.pyenv/versions/3.9.1/envs/make-slug@3.9.1/bin/python"
+    "python.pythonPath": "/Users/andybowskill/.pyenv/versions/3.9.1/envs/make-slug@3.9.1/bin/python",
 }
