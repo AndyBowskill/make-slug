@@ -1,5 +1,5 @@
 import unittest
-import makeslug
+from src import makeslug
 
 
 class TestMakeSlug(unittest.TestCase):

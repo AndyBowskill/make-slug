@@ -1,5 +1,6 @@
 import re
 
+
 def check_for_errors(sentence: str) -> tuple[bool, str]:
     """
     Check for errors on the sentence.
@@ -20,12 +21,12 @@ def check_for_errors(sentence: str) -> tuple[bool, str]:
             error_text = "The sentence must be populated. Please try again."
             break
 
-        pattern = '[^a-zA-Z0-9\s-]'
+        pattern = "[^a-zA-Z0-9\s-]"
         found = re.findall(pattern, sentence)
         if found:
             regex_error_text = ""
             found_len = len(found)
-            
+
             for i in range(found_len):
                 regex_error_text += found[i]
 
