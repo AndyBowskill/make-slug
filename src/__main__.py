@@ -1,7 +1,7 @@
 import makeslug
 
 
-def main():
+def main() -> None:
 
     print("Make a slug from sentence you provide.")
 
