@@ -1,5 +1,4 @@
-import pytest
-import mkslug
+from src.mkslug import check_for_errors, generate
 
 
 class TestMakeSlug:
@@ -8,37 +7,37 @@ class TestMakeSlug:
         Test check_for_errors function works successfully when a regular sentence provided.
         """
 
-        error, error_text = mkslug.check_for_errors("Test SLUG vaLUEs 1")
+        error, error_text = check_for_errors("Test SLUG vaLUEs 1")
 
-        assert error == False
-        assert error_text == None
+        assert not error
+        assert error_text is None
 
     def test_check_for_errors_empty_sentence(self):
         """
         Test check_for_errors function raising an error when no sentence provided.
         """
 
-        error, error_text = mkslug.check_for_errors("")
+        error, error_text = check_for_errors("")
 
-        assert error == True
-        assert error_text != None
+        assert error is True
+        assert error_text is not None
 
     def test_check_for_errors_special_characters_in_sentence(self):
         """
         Test check_for_errors function raising an error when special characters in a sentence provided.
         """
 
-        error, error_text = mkslug.check_for_errors("%One slug ^* value  $  ")
+        error, error_text = check_for_errors("%One slug ^* value  $  ")
 
-        assert error == True
-        assert error_text != None
+        assert error is True
+        assert error_text is not None
 
     def test_generate_regular_sentence(self):
         """
         Test generate function works successfully when a regular sentence provided.
         """
 
-        slug = mkslug.generate("Test SLUG vaLUEs 1")
+        slug = generate("Test SLUG vaLUEs 1")
 
         assert slug == "test-slug-values-1"
 
@@ -47,6 +46,6 @@ class TestMakeSlug:
         Test generate function works successfully when the outer characters are blank provided.
         """
 
-        slug = mkslug.generate("    Test SLUG vaLUEs 2  ")
+        slug = generate("    Test SLUG vaLUEs 2  ")
 
         assert slug == "test-slug-values-2"
