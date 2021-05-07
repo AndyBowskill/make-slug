@@ -1,4 +1,4 @@
-import makeslug
+import mkslug
 
 
 def main() -> None:
@@ -9,11 +9,11 @@ def main() -> None:
 
     while error:
         sentence = input("Please enter one sentence: ")
-        error, error_text = makeslug.check_for_errors(sentence)
+        error, error_text = mkslug.check_for_errors(sentence)
         if error:
             print(error_text)
 
-    slug = makeslug.generate(sentence)
+    slug = mkslug.generate(sentence)
     print("The generated slug is:")
     print(f"{slug}")
 
