@@ -1,20 +1,15 @@
+import sys
 import mkslug
 
 
 def main() -> None:
 
-    print("Make a Slug from Sentence You Provide.")
-
-    error = True
-
-    while error:
-        sentence = input("Please enter one sentence and press the return/enter key: ")
-        error, error_text = mkslug.check_for_errors(sentence)
-        if error:
-            print(error_text)
+    try:
+        sentence = sys.argv[1]
+    except IndexError:
+        raise SystemExit("The sentence must be populated. For example: python -m 'How do you fix a car' in the terminal. Please try again.")
 
     slug = mkslug.generate(sentence)
-    print("The generated slug is:")
     print(f"{slug}")
 
 
