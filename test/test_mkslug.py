@@ -1,37 +1,7 @@
-from src.mkslug import check_for_errors, generate
+from src.mkslug import generate
 
 
 class TestMakeSlug:
-    def test_check_for_errors_regular_sentence(self):
-        """
-        Test check_for_errors function works successfully when a regular sentence provided.
-        """
-
-        error, error_text = check_for_errors("Test SLUG vaLUEs 1")
-
-        assert not error
-        assert error_text is None
-
-    def test_check_for_errors_empty_sentence(self):
-        """
-        Test check_for_errors function raising an error when no sentence provided.
-        """
-
-        error, error_text = check_for_errors("")
-
-        assert error is True
-        assert error_text is not None
-
-    def test_check_for_errors_special_characters_in_sentence(self):
-        """
-        Test check_for_errors function raising an error when special characters in a sentence provided.
-        """
-
-        error, error_text = check_for_errors("%One slug ^* value  $  ")
-
-        assert error is True
-        assert error_text is not None
-
     def test_generate_regular_sentence(self):
         """
         Test generate function works successfully when a regular sentence provided.
@@ -39,7 +9,7 @@ class TestMakeSlug:
 
         slug = generate("Test SLUG vaLUEs 1")
 
-        assert slug == "test-slug-values-1"
+        assert slug == "The generated slug is:\ntest-slug-values-1"
 
     def test_generate_outer_chars_are_blank(self):
         """
@@ -48,4 +18,22 @@ class TestMakeSlug:
 
         slug = generate("    Test SLUG vaLUEs 2  ")
 
-        assert slug == "test-slug-values-2"
+        assert slug == "The generated slug is:\ntest-slug-values-2"
+
+    def test_generate_empty_sentence(self):
+        """
+        Test generate function works successfully when an empty sentence provided.
+        """
+
+        slug = generate("")
+
+        assert slug == "The sentence must be populated. Please try again."
+
+    def test_generate_special_characters_in_sentence(self):
+        """
+        Test generate function works successfully when a sentence provided has some special characters.
+        """
+
+        slug = generate("%Test slug ^*value$ 3 ")
+
+        assert slug == "The generated slug is:\ntest-slug-value-3"
