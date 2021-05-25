@@ -7,18 +7,9 @@ class TestMakeSlug:
         Test generate function works successfully when a regular sentence provided.
         """
 
-        slug = generate("Test SLUG vaLUEs 1")
+        slug = generate("Test slug value 1")
 
         assert slug == "The generated slug is:\ntest-slug-values-1"
-
-    def test_generate_outer_chars_are_blank(self):
-        """
-        Test generate function works successfully when the outer characters are blank provided.
-        """
-
-        slug = generate("    Test SLUG vaLUEs 2  ")
-
-        assert slug == "The generated slug is:\ntest-slug-values-2"
 
     def test_generate_empty_sentence(self):
         """
@@ -37,3 +28,12 @@ class TestMakeSlug:
         slug = generate("%Test slug ^*value$ 3.£$/")
 
         assert slug == "The generated slug is:\ntest-slug-value-3"
+
+    def test_generate_multiple_spaces_in_sentence(self):
+        """
+        Test generate function works successfully when a sentence provided has multiple spaces.
+        """
+
+        slug = generate("    test    slug  value    4   ")
+
+        assert slug == "The generated slug is:\ntest-slug-value-4"

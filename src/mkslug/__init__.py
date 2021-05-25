@@ -16,11 +16,11 @@ def generate(sentence: str) -> str:
         return "The sentence must be populated. Please try again."
 
     # Weed out unsavoury characters in the sentence
-    pattern = "[^a-zA-Z0-9\s-]"
-    sentence = re.sub(pattern, "", sentence)
+    sentence = re.sub("[^a-zA-Z0-9\s-]", "", sentence)
 
-    slug = sentence.strip()
+    # Change from one or more spaces to one hyphen
+    slug = "-".join(sentence.split())
+
     slug = slug.lower()
-    slug = slug.replace(" ", "-")
 
     return f"The generated slug is:\n{slug}"
