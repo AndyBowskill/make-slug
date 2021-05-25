@@ -34,6 +34,6 @@ class TestMakeSlug:
         Test generate function works successfully when a sentence provided has some special characters.
         """
 
-        slug = generate("%Test slug ^*value$ 3 ")
+        slug = generate("%Test slug ^*value$ 3.£$/")
 
         assert slug == "The generated slug is:\ntest-slug-value-3"

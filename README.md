@@ -11,8 +11,8 @@ pip install mkslug
 
 ### Usage
 
-To use mkslug, type this command into your terminal:
+To use mkslug, type this command into your terminal with your sentence:
 
 ```bash
-python -m mkslug
+python -m mkslug 'Example regular sentence.'
 ```
