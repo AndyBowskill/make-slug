@@ -9,7 +9,7 @@ class TestMakeSlug:
 
         slug = generate("Test slug value 1")
 
-        assert slug == "The generated slug is:\ntest-slug-values-1"
+        assert slug == "The generated slug is:\ntest-slug-value-1"
 
     def test_generate_empty_sentence(self):
         """
